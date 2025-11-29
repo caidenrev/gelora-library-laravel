@@ -107,18 +107,48 @@ class CirculationController extends Controller
     public function storeReturn(Request $request)
     {
         $request->validate([
-            'isbn' => 'required|exists:books,isbn',
+            'member_id_number' => 'required|string',
+            'isbn' => 'required|string',
         ]);
 
-        $book = Book::where('isbn', $request->isbn)->first();
+        // Cari anggota
+        $members = Member::where('member_id_number', $request->member_id_number)
+            ->orWhere('full_name', 'like', '%' . $request->member_id_number . '%')
+            ->get();
 
-        // Cari peminjaman yang aktif untuk buku ini
+        if ($members->isEmpty()) {
+            return back()->with('error', 'Anggota tidak ditemukan.');
+        }
+
+        if ($members->count() > 1) {
+            return back()->with('error', 'Ditemukan lebih dari satu anggota dengan nama tersebut. Silakan gunakan ID Anggota.');
+        }
+
+        $member = $members->first();
+
+        // Cari buku
+        $books = Book::where('isbn', $request->isbn)
+            ->orWhere('title', 'like', '%' . $request->isbn . '%')
+            ->get();
+
+        if ($books->isEmpty()) {
+            return back()->with('error', 'Buku tidak ditemukan.');
+        }
+
+        if ($books->count() > 1) {
+            return back()->with('error', 'Ditemukan lebih dari satu buku dengan judul tersebut. Silakan gunakan ISBN.');
+        }
+
+        $book = $books->first();
+
+        // Cari peminjaman yang aktif untuk buku dan anggota ini
         $loan = Loan::where('book_id', $book->id)
+            ->where('member_id', $member->id)
             ->whereIn('status', ['Dipinjam', 'Terlambat'])
             ->first();
 
         if (!$loan) {
-            return back()->with('error', 'Tidak ditemukan data peminjaman aktif untuk buku ini.');
+            return back()->with('error', 'Tidak ditemukan data peminjaman aktif untuk buku ini oleh anggota tersebut.');
         }
 
         $returnDate = now();
