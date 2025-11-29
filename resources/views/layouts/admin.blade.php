@@ -86,6 +86,9 @@
                         <a href="{{ route('dasbor.anggota.index') }}" class="group flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900 {{ request()->routeIs('dasbor.anggota.*') ? 'bg-gray-100 text-gray-900' : '' }}">
                             Manajemen Anggota
                         </a>
+                        <a href="{{ route('dasbor.kategori.index') }}" class="group flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900 {{ request()->routeIs('dasbor.kategori.*') ? 'bg-gray-100 text-gray-900' : '' }}">
+                            Kategori
+                        </a>
                         <a href="{{ route('dasbor.sirkulasi.index') }}" class="group flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900 {{ request()->routeIs('dasbor.sirkulasi.*') ? 'bg-gray-100 text-gray-900' : '' }}">
                             Sirkulasi
                         </a>

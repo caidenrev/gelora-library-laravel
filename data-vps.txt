@@ -1,0 +1,21 @@
+Berikut ini adalah informasi layanan yang kamu beli, jangan lupa untuk bikin reminder renewal juga agar tidak kelewatan yahh.
+
+Hostname	vps.geloralibrary.my.id
+Package	Nebula
+Durasi Berlangganan	Quarterly
+Perpanjangan Berikutnya	Friday, February 13th, 2026
+
+IP Server	154.19.37.205
+Username	root
+Password	mukbsca22
+
+Layanan Next VM telah terinstall template berikut ini
+
+Template Instalasi VM	Rocky 8
+
+Kamu bisa melakukan instalasi ulang Layanan Next VM dengan mudah, menggunakan berbagai template sistem operasi hingga aplikasi berikut ini:
+
+OS Only:
+Almalinux, CentOS, Debian, Rocky 8, Ubuntu
+Stack:
+LAMP, LEMP, NodeJS, Ruby, Django, Docker
