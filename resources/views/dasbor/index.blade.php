@@ -107,11 +107,11 @@
                                 <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center bg-indigo-100 text-indigo-600 rounded-full font-bold">
                                     #{{ $index + 1 }}
                                 </div>
-                                <div class="ml-4 flex-1">
-                                    <h4 class="text-sm font-semibold text-gray-900 truncate">{{ $book->title }}</h4>
-                                    <p class="text-xs text-gray-500">{{ $book->author }}</p>
+                                <div class="ml-4 flex-1 min-w-0">
+                                    <h4 class="text-sm font-semibold text-gray-900 truncate" title="{{ $book->title }}">{{ $book->title }}</h4>
+                                    <p class="text-xs text-gray-500 truncate">{{ $book->author }}</p>
                                 </div>
-                                <div class="text-sm font-medium text-gray-600">
+                                <div class="ml-4 flex-shrink-0 text-sm font-medium text-gray-600 whitespace-nowrap">
                                     {{ $book->loans_count }}x Dipinjam
                                 </div>
                             </div>
