@@ -15,18 +15,18 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-blue-600">
-            <div>
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-0 sm:pt-0 bg-white sm:bg-blue-600">
+            <div class="mt-6 sm:mt-0">
                 <a href="/" class="flex flex-col items-center">
-                    <span class="text-3xl font-bold text-white drop-shadow-md">Gelora Library</span>
+                    <span class="text-3xl font-bold text-blue-600 sm:text-white drop-shadow-none sm:drop-shadow-md">Gelora Library</span>
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-8 py-8 bg-white shadow-2xl overflow-hidden sm:rounded-2xl ring-1 ring-black/5">
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4 sm:px-8 sm:py-8 bg-white shadow-none sm:shadow-2xl overflow-hidden sm:rounded-2xl ring-0 sm:ring-1 sm:ring-black/5">
                 {{ $slot }}
             </div>
             
-            <div class="mt-8 text-white/80 text-sm">
+            <div class="mt-8 mb-8 sm:mb-0 text-gray-500 sm:text-white/80 text-sm">
                 &copy; {{ date('Y') }} Gelora Library.
             </div>
         </div>
