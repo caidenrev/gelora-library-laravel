@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-gray-100">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,8 +14,8 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font-sans antialiased bg-gray-100">
-    <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-100">
+<body class="font-sans antialiased bg-gray-100 h-full">
+    <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-100 overflow-hidden">
         <!-- Sidebar -->
         <aside class="flex-shrink-0 hidden w-64 bg-white border-r md:block">
             <div class="flex flex-col h-full">
@@ -26,7 +26,7 @@
                     </a>
                 </div>
                 <!-- Sidebar Links -->
-                <nav class="flex-1 p-4 space-y-2">
+                <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
                     <a href="{{ route('dashboard') }}" class="flex items-center px-4 py-2 text-gray-700 rounded-md hover:bg-gray-200 {{ request()->routeIs('dashboard') ? 'bg-gray-200' : '' }}">
                         Dasbor
                     </a>
@@ -103,7 +103,7 @@
             </div>
         </div>
 
-        <div class="flex flex-col flex-1">
+        <div class="flex flex-col flex-1 overflow-hidden">
             <!-- Navbar -->
             <header class="flex items-center justify-between h-16 bg-white border-b">
                  <div class="flex items-center px-4">
@@ -140,7 +140,7 @@
             </header>
 
             <!-- Main content -->
-            <main class="flex-1 p-6 overflow-y-auto">
+            <main class="flex-1 p-4 sm:p-6 overflow-y-auto">
                 @yield('content')
             </main>
         </div>

@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Laporan Peminjaman</title>
     <style>
-        body { font-family: 'sans-serif'; }
+        body { 
+            font-family: 'sans-serif'; 
+            font-size: 12px;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
