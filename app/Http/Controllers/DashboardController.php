@@ -36,7 +36,8 @@ class DashboardController extends Controller
 
         // --- CHART 2: TREN PEMINJAMAN (6 Bulan Terakhir) ---
         $peminjaman_bulanan = Loan::select(
-            DB::raw('DATE_FORMAT(loan_date, "%Y-%m") as bulan'),
+            // DB::raw('DATE_FORMAT(loan_date, "%Y-%m") as bulan'), // MySQL
+            DB::raw('strftime("%Y-%m", loan_date) as bulan'), // SQLite
             DB::raw('count(*) as total')
         )
         ->where('loan_date', '>=', Carbon::now()->subMonths(6))
