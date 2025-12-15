@@ -140,12 +140,15 @@ class VisitController extends Controller
     }
 
     // 2. Export Leaderboard (Fitur Baru)
-    public function exportLeaderboardPdf()
+   public function exportLeaderboardPdf()
     {
         $members = Member::withCount(['visits as total_points' => function ($query) {
                 $query->where('got_point', true);
             }])
-            ->having('total_points', '>', 0) // Hanya yg punya poin
+            // GANTI 'HAVING' DENGAN 'WHEREHAS' AGAR AMAN DI SQLITE
+            ->whereHas('visits', function($query) {
+                $query->where('got_point', true);
+            })
             ->orderByDesc('total_points')
             ->limit(50)
             ->get();
